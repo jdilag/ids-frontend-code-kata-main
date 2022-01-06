@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Message Dialog Code Kata</title>
+	<meta http-equiv="Content-Security-Policy" content="
+      script-src 'self' 'nonce-0a59a005';
+      style-src 'self' https://fonts.googleapis.com 'nonce-0a59a005';
+      font-src 'self' data: https://fonts.gstatic.com;
+  	" />
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&amp;display=swap" rel="stylesheet" />
+
+	<!-- Global Styles -->
+	<style nonce="0a59a005">
+		html {
+			--font-family: 'source sans pro';
+			--font-size: 1em;
+		}
+
+		body {
+			font-family: var(--font-family);
+			font-size: var(--font-size);
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Insert Custom Component Html -->
+	<custom-button id="error-btn">Error Example</custom-button>
+	<custom-message-dialog id="error-dialog">
+		<div slot="header">
+			<img src="images/error-alert.svg" alt="Error" height="20px" width="20px">
+			<span>Lost Connection</span>
+		</div>
+		<p slot="content">This application has experienced a system error due to the lack of internet access.<br>
+			<i>Please</i> restart the application in order to proceed.
+		</p>
+	</custom-message-dialog>
+
+
+	<script defer="" src="js/custom-button.js"></script>
+	<script defer="" src="js/custom-message-dialog.js"></script>
+	<script nonce="0a59a005">
+		(function () {
+			const errorBtn = document.getElementById('error-btn');
+			const errorDialog = document.getElementById('error-dialog');
+
+			errorBtn.addEventListener('click', () => {
+				errorDialog.open = true;
+			});
+		})();
+	</script>
+</body>
+
+</html>
